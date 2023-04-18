@@ -1,6 +1,5 @@
 import hashlib
 import os
-import sys
 import shutil
 import warnings
 from typing import Dict, Tuple

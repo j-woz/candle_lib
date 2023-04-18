@@ -114,6 +114,7 @@ A log of ckpt operations is in ckpt_directory/ckpt.log
 
 import json
 import os
+import sys
 import shutil
 import time
 from enum import Enum, auto, unique
