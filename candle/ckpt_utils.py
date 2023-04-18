@@ -457,7 +457,12 @@ class CandleCkpt:
         os.symlink(src, dst)
 
     def relpath(self, p):
-        return p.relative_to(self.cwd) if p.is_relative_to(self.cwd) else p
+        if sys.version_info[0] >= 3 and sys.version_info[1] >= 9:
+            # Python 3.9 and greater:
+            return p.relative_to(self.cwd) \
+                if p.is_relative_to(self.cwd) else p
+        else:
+            return p
 
     def info(self, message):
         if self.logger is not None:
