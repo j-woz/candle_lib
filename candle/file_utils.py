@@ -66,7 +66,7 @@ def get_file(
 
     fpath = os.path.join(datadir, fname)
     if verbose:
-        print("getfile(): getting file: " + fpath)
+        print("requested file: " + fpath)
     if not os.path.exists(os.path.dirname(fpath)):
         os.makedirs(os.path.dirname(fpath))
 
@@ -99,7 +99,9 @@ def get_file(
         if "modac.cancer.gov" in origin:
             get_file_from_modac(fpath, origin)
         else:
-            print("Downloading data from 2 ", origin)
+            print("Downloading data from ", origin)
+            if verbose:
+                print("Downloading to local file: " + fpath)
             global progbar
             progbar = None
 
